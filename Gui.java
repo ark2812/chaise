@@ -16,12 +16,37 @@ public class Gui extends JPanel {
 		JButton upButton  = new JButton("Up");
 		JButton downButton  = new JButton("Down");
 
-		//... Add Listeners
-		startButton.addActionListener(new StartAction(true));
+		/* +===============+----+----------+
+		 * |  ___________  |    | +-+   ^  |
+		 * *O| LISTENERS |O*    | | |  ( ) |
+		 *   |___________|      | +-+   V  |
+		 *       \   /          +----------+
+		 */
+		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), // 0 mean no modification (like control or alt)
+				"left");
+		field.getActionMap().put("left", new SpeedAction(-1, 0));
+		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0),
+				"right");
+		field.getActionMap().put("right", new SpeedAction(1, 0));
+		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0),
+				"up");
+		field.getActionMap().put("up", new SpeedAction(0, -1));
+		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0),
+				"down");
+		field.getActionMap().put("down", new SpeedAction(0, 1));
+		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0),
+				"start");
+		field.getActionMap().put("start", new StartAction(true));
 		leftButton.addActionListener(new SpeedAction(-1, 0));
 		rightButton.addActionListener(new SpeedAction(1, 0));
 		upButton.addActionListener(new SpeedAction(0, -1));
 		downButton.addActionListener(new SpeedAction(0, 1));
+		startButton.addActionListener(new StartAction(true));
 
 		//... Layout inner panel with two buttons horizontally
 		JPanel buttonPanel = new JPanel();
@@ -42,7 +67,7 @@ public class Gui extends JPanel {
 	}
 
 
-	class SpeedAction implements ActionListener {
+	class SpeedAction extends AbstractAction {
 		private Point speed;
 		public SpeedAction (int x, int y) {
 			speed = new Point(x, y);
@@ -51,7 +76,7 @@ public class Gui extends JPanel {
 			field.addSpeed(speed.x, speed.y);
 		}
 	}
-	class StartAction implements ActionListener {
+	class StartAction extends AbstractAction {
 		boolean start;
 		public StartAction (boolean start) {
 			this.start = start;
