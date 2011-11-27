@@ -11,8 +11,8 @@ public class Gui extends JPanel {
 		field = new Field();        
 		JButton startButton = new JButton("Start");        
 		JButton stopButton  = new JButton("Stop");
-		JButton leftButton  = new JButton("Right");
-		JButton rightButton  = new JButton("Left");
+		JButton leftButton  = new JButton("Left");
+		JButton rightButton  = new JButton("Right");
 		JButton upButton  = new JButton("Up");
 		JButton downButton  = new JButton("Down");
 
