@@ -38,10 +38,10 @@ public class Gui extends JPanel {
 				KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0),
 				"down");
 		field.getActionMap().put("down", new SpeedAction(0, 1));
-		field.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
-				KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0),
-				"start");
-		field.getActionMap().put("start", new StartAction(true));
+		startButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+				KeyStroke.getKeyStroke(KeyEvent.VK_G, 0),
+				"x");
+		startButton.getActionMap().put("x", new StartAction(true));
 		leftButton.addActionListener(new SpeedAction(-1, 0));
 		rightButton.addActionListener(new SpeedAction(1, 0));
 		upButton.addActionListener(new SpeedAction(0, -1));
