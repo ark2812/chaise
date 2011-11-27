@@ -1,1 +1,7 @@
 Chaise is a Java game in 2D
+
+To compile:
+	$ make
+
+To run it:
+	$ make run
