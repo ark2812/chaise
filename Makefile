@@ -7,8 +7,11 @@ ARG=
 
 CLASSES = \
 		  Gui.java \
-		  Ball.java \
-		  Field.java
+		  Field.java \
+		  Element.java \
+		  Animate.java \
+		  Rectangle.java \
+		  Ball.java
 
 default: classes
 
