@@ -95,7 +95,7 @@ public class Gui extends JPanel {
 	}
 
 	public static void main (String[] args) {
-		JFrame win = new JFrame("Bouncing Ball Demo");
+		JFrame win = new JFrame("Chaise");
 		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		win.setContentPane(new Gui());
